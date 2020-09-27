@@ -1,0 +1,5 @@
+require_relative '../lib/rpsmethods.rb'
+
+game = RockPaperScissors.new
+
+game.play
