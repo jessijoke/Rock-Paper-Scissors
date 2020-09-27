@@ -1,5 +1,5 @@
 This is a basic Rock, Paper, Scissors app that runs in the command line.
 
-To play the game simply type "ruby bin/rps" (case sensitive)
+To play the game simply navigate to the folder in your command line and type "ruby bin/rps" (case sensitive)
 
 Then make a choice between 'rock', 'paper' or 'scissors', the computer will make their choice and tell you who won, and track your scores, and give you the option to play again or quit.
