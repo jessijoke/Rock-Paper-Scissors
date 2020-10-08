@@ -13,6 +13,8 @@ class RockPaperScissors
 
   #Lets the player make their selection, checks valid selection to see if their input is valid, if it is then calls computer_selection to make a choice for the computer, and then won to determin the outcome of the game. If your selection is not valid it starts play over again prompting you to make a valid selection.
   def play
+    title
+    divider
     puts "Choose 'Rock', 'Paper', or 'Scissors'"
     input = gets.strip
     input_downcase(input)
@@ -22,6 +24,31 @@ class RockPaperScissors
     else
       play
     end
+  end
+
+  def title
+    puts "
+            ╦═╗┌─┐┌─┐┬┌─          
+            ╠╦╝│ ││  ├┴┐          
+            ╩╚═└─┘└─┘┴ ┴          
+          ╔═╗┌─┐┌─┐┌─┐┬─┐       
+          ╠═╝├─┤├─┘├┤ ├┬┘       
+          ╩  ┴ ┴┴  └─┘┴└─       
+       ╔═╗┌─┐┬┌─┐┌─┐┌─┐┬─┐┌─┐
+       ╚═╗│  │└─┐└─┐│ │├┬┘└─┐
+       ╚═╝└─┘┴└─┘└─┘└─┘┴└─└─┘"
+  end
+
+  def divider
+    puts '
+_."._."._."._."._."._."._."._."._."._
+    '
+  end
+
+  def divider2
+    puts '
+-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=x=-=   
+    '
   end
 
   #Takes in user input and downcases it, along with converting it to an instance variable
@@ -42,19 +69,35 @@ class RockPaperScissors
 
   #Compares the user's input to the computer's choice to determine an outcome, adds points based on that outcome, and calls play again
   def won
+    divider
     if @input == @comp
-      puts "You picked #{@input}. Computer picked #{@comp}. It's a tie!"
+      puts "You picked #{@input}. Computer picked #{@comp}."
+      puts "
+       ╦┌┬┐┌─┐  ┌─┐  ┌┬┐┬┌─┐ 
+       ║ │ └─┐  ├─┤   │ │├┤  
+       ╩ ┴ └─┘  ┴ ┴   ┴ ┴└─┘o"
+      divider2
       puts "Current Score: [User] #{@u_score} *** [Computer] #{@c_score}" 
       play_again
     elsif @input == "rock" && @comp == "scissors" || @input == "paper" && @comp == "rock" || @input == "scissors" && @comp == "paper"
       @u_score += 1
-      puts "You picked #{@input}. Computer picked #{@comp}. You WIN!!!"
+      puts "You picked #{@input}. Computer picked #{@comp}."
+      puts "
+        ╦ ╦┌─┐┬ ┬  ┬ ┬┬┌┐┌┬
+        ╚╦╝│ ││ │  ││││││││
+         ╩ └─┘└─┘  └┴┘┴┘└┘o"
+      divider2
       puts "Current Score: [User] #{@u_score} *** [Computer] #{@c_score}"
       play_again
     elsif 
       @c_score += 1
       @input == "rock" && @comp == "paper" || @input == "paper" && @comp == "scissors" || @input == "scissors" && @comp == "rock"
-      puts "You picked #{@input}. Computer picked #{@comp}. You LOSE!!!"
+      puts "You picked #{@input}. Computer picked #{@comp}."
+      puts "
+      ╦ ╦╔═╗╦ ╦  ╦  ╔═╗╔═╗╔═╗┬┬┬
+      ╚╦╝║ ║║ ║  ║  ║ ║╚═╗║╣ │││
+       ╩ ╚═╝╚═╝  ╩═╝╚═╝╚═╝╚═╝ooo"
+      divider2
       puts "Current Score: [User] #{@u_score} /// [Computer] #{@c_score}"
       play_again
     else
@@ -65,6 +108,7 @@ class RockPaperScissors
 
   #gives you the option to play again, or end your game
   def play_again
+    divider2
     puts "Do you want to play again? (y/n)"
     @pinput = gets.strip.downcase
     if @pinput == "no" || @pinput == "n"
@@ -77,6 +121,3 @@ class RockPaperScissors
   end
   
 end
-
-
-
